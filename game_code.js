@@ -558,5 +558,4 @@ const ScriptArrays = [
 
     }
 ]
-
 start()
