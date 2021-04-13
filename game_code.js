@@ -557,7 +557,5 @@ const ScriptArrays = [
         text: 'Congratulations! You survived 2020! What a year, right? 2020 was full of emotions. What did you learn? How would you describe this experience? The purpose of the game was to make you relive 2020 by choosing your adventures. One of the goals was to focus attention on the medical workers and how important is their role in our society. Moreover, by reaching the end of the game you should have broadened your horizons in aspects of culture, lifestyle and education. The world is full of unexplored opportunities and you grasp each one of them with excitement and hope that each day you will become a better version of yourself. ',
 
     }
-
 ]
-
 start()
