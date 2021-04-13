@@ -7,9 +7,19 @@
     <title>Survive2020</title>
     <link rel="stylesheet" href="game_design.css">
     <script defer src="game_code.js"></script>
+    <script>
+        let map;
+    
+        function initMap() {
+          map = new google.maps.Map(document.getElementById("map"), {
+            center: { lat: -34.397, lng: 150.644 },
+            zoom: 8,
+          });
+        }
+      </script>
 </head>
 <body>
-    <div class="main">
+    <div class="main_script_box">
         <div id="script"> Script</div>
         <div id="options" class="options_grid">
             <button class="option">First option</button>
@@ -18,6 +28,24 @@
             <button class="option">Fourth option</button>
         </div>
     </div>
+    <div class="articles_box">
+        
+    </div>
+<div class="videos_box">
+</div>
 
+<div class="player_details_box">
+
+</div>
+<div class="map_box">
+<div id="map"></div>
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDg85dZeua-16dyMQK8gCwNjPg8iDcqbU4&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+
+</div>
 </body>
 </html>

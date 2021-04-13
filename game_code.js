@@ -1,9 +1,7 @@
 const script = document.getElementById('script')
 const optionsButton = document.getElementById('options')
-
 // keep track of what the user will do
 let state = {}
-
 
 function start() {
     state = {}
@@ -44,8 +42,11 @@ function chooseOption(option) {
     showScript(nextTexdId)
 }
 
+
+
 const ScriptArrays = [
     {
+
         id: 1,
         text: 'You just entered a journey that you will never forget. We promise you that the “Survive 2020” game will have the most engaging gameplay that will keep you on the edge of your seat until the end. You will travel the world, jump in journeys that you have never thought of and fearlessly save people you have never met before. What are you waiting for? Just press the “Start” button and choose your adventures.',
         options: [
@@ -60,6 +61,7 @@ const ScriptArrays = [
     {
         id: 2,
         text: 'The time is December of 2019. You are a recent graduate student that has just finished its “Nursing” course at Edinburgh Napier University, Scotland. You have decided to devote the coming year to broadening your horizons by travelling, reaching new cultures and helping people through volunteering. You only need to put your nickname and choose an assistant. But what is an assistant? The assistant will support you with advice and facts based on your current journey. We offer you to choose from two highly educated professionals. Both of them will help you and make you feel as you are on a world adventure with a friend. ',
+
         options: [
             {
                 text: 'Tom',
@@ -75,6 +77,7 @@ const ScriptArrays = [
                 nextText: 3
             }
         ]
+
     },
     {
         id: 3,

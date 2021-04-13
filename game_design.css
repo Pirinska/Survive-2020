@@ -4,7 +4,7 @@
 
     box-sizing: border-box;
     font-family: 'Roboto';
-    font-size: 14px;
+    font-size: 0.8vw;
 
 }
 
@@ -16,19 +16,23 @@ body {
 
 }
 
-.main {
+.main_script_box {
     position: absolute;
     left: 50%;
     top: 30%;
     -webkit-transform: translate(-50%, -30%);
     transform: translate(-50%, -30%);
-
+    max-height: 57%;
     padding: 10px;
-    width: 600px;
-    max-width: 80%;
-    background-color: white;
+    width: 1000px;
+    max-width: 45%;
+    background-color: #fffafa;
     border-radius: 12px;
     box-shadow: 0 0 10px 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: grid;
 }
 
 .script {
@@ -54,7 +58,7 @@ body {
 
     border: none;
     padding: 0.9em 1.2em;
-    margin: 0 0.4em 0.4em 0;
+    margin: 0 0.2em 0.4em 0;
     color: white;
     border-radius: 1em;
     background-color: #8C1440;
@@ -65,4 +69,82 @@ body {
 .option:hover {
     background-color: black;
     color: white;
+}
+
+
+.articles_box {
+    position: absolute;
+    left: 15%;
+    top: 30%;
+    -webkit-transform: translate(-15%, -30%);
+    transform: translate(-15%, -30%);
+
+    padding: 10px;
+    width: 600px;
+    max-width: 12%;
+    height: 1000px;
+    max-height: 50%;
+    background-color: #fffafa;
+    border-radius: 12px;
+    box-shadow: 0 0 10px 2px;
+
+}
+
+.videos_box {
+    position: absolute;
+    left: 85%;
+    top: 30%;
+    -webkit-transform: translate(-85%, -30%);
+    transform: translate(-85%, -30%);
+
+    padding: 10px;
+    width: 600px;
+    height: 1000px;
+    max-height: 50%;
+    max-width: 12%;
+
+    background-color: #fffafa;
+    border-radius: 12px;
+    box-shadow: 0 0 10px 2px;
+
+}
+
+.player_details_box {
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    -webkit-transform: translate(-50%, -5%);
+    transform: translate(-50%, -5%);
+    height: 5%;
+    max-height: 5%;
+    padding: 20px;
+    width: 75%;
+    max-width: 75%;
+
+    background-color: #fffafa;
+    border-radius: 12px;
+    box-shadow: 0 0 10px 2px;
+
+}
+
+.map_box {
+    position: absolute;
+    left: 50%;
+    top: 95%;
+    -webkit-transform: translate(-50%, -95%);
+    transform: translate(-50%, -95%);
+    height: 25%;
+    max-height: 25%;
+    padding: 20px;
+    width: 75%;
+    max-width: 75%;
+
+    background-color: #fffafa;
+    border-radius: 12px;
+    box-shadow: 0 0 10px 2px;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
 }
