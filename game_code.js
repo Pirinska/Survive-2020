@@ -2,17 +2,55 @@ const script = document.getElementById('script')
 const optionsButton = document.getElementById('options')
 // keep track of what the user will do
 let state = {}
+let map;
+
+function initMap() {
+    const location = { lat: 55.953251, lng: -3.188267 };
+    map = new google.maps.Map(document.getElementById("map"), {
+        center: location,
+        zoom: 8,
+    });
+    new google.maps.Marker({
+        position: location,
+        map,
+        title: "Zoom out and find out where is your next journey location. You can walk through the streets. So exciting!",
+
+    });
+
+    addMarker({ lat: 30.581980, lng: 114.268066 });
+    addMarker({ lat: -33.635890, lng: 150.285780 });
+    addMarker({ lat: 22.396427, lng: 114.109497 });
+    addMarker({ lat: -34.603683, lng: -58.381557 });
+    addMarker({ lat: -54.801910, lng: -68.302948 });
+    addMarker({ lat: -68.302948, lng: 9.669960 });
+    addMarker({ lat: 35.517490, lng: -86.580444 });
+    addMarker({ lat: 55.755825, lng: 37.617298 });
+    addMarker({ lat: 69.355789, lng: 88.189293 });
+    addMarker({ lat: 37.983810, lng: 23.727539 });
+    addMarker({ lat: 39.134100, lng: 26.517750 });
+    addMarker({ lat: 33.893791, lng: 35.501778 });
+    addMarker({ lat: 12.565679, lng: 104.990967 });
+
+    function addMarker(location) {
+        var marker = new google.maps.Marker({
+            position: location,
+            map: map,
+
+        });
+    }
+}
 
 function start() {
     state = {}
     showScript(1)
+    initMap()
 }
 
 function showScript(index) {
 
     const scriptArray = ScriptArrays.find(scriptArray => scriptArray.id === index)
     script.innerText = scriptArray.text
-
+    location.innerText = scriptArray.text
     //remove all options
     while (optionsButton.firstChild) {
         optionsButton.removeChild(optionsButton.firstChild)
@@ -28,7 +66,6 @@ function showScript(index) {
 
         }
     })
-
 
 }
 
@@ -49,6 +86,7 @@ const ScriptArrays = [
 
         id: 1,
         text: 'You just entered a journey that you will never forget. We promise you that the “Survive 2020” game will have the most engaging gameplay that will keep you on the edge of your seat until the end. You will travel the world, jump in journeys that you have never thought of and fearlessly save people you have never met before. What are you waiting for? Just press the “Start” button and choose your adventures.',
+
         options: [
             {
                 text: 'Start',
@@ -82,6 +120,7 @@ const ScriptArrays = [
     {
         id: 3,
         text: 'It is the morning of the 31st of December. You are writing your New Year Resolutions in your notebook. You are browsing through the Internet to find out some inspiration on how to start the following year. While surfing the Net, you bump into some articles that announce concerning news. The first one states that Australian Bushfires are spreading beyond five million acres. Ten people have died since September. Tens of thousands of farm animals, mainly sheep, were also killed in the fire on Kangaroo Island. You see all those images and videos on the articles and become speechless of how disastrous impact can make a fire and how emergent is the situation. You continue browsing and see that the World Health Organisation informs that China has confirmed people with viral pneumonia of unknown aetiology (unknown cause) detected in Wuhan City, Hubei Province of China. You find this extremely interesting and you are curious about what is this new disease that spreads in Wuhan. Your first journey knocks on the door. Consider where you want to be and what you want to do throughout January of 2021? What will you choose?  ',
+
         options: [
             {
                 text: 'Volunteer at Australian Bushfires',
@@ -101,6 +140,7 @@ const ScriptArrays = [
     {
         id: 4,
         text: 'You buy a ticket with all money you have, heading directly to Sydney, Australia. The flight continues for 35 hours long, it has three stops but you have no doubt that you could help there and you don’t give up. After reaching Sydney, you take a bus and go directly to Blackheath - a village where the fires have spread and caused a disastrous impact on people’s homes. You find the people you have to work with and they show you where you are going to sleep and when you are going to eat. Your shifts are going to take 12 hours and you need to put a special consume that will enable you to breathe fresh air. When the head firefighter finds out you are a graduate nurse, he offers you a choice. I heard you have a degree in Nursing. Do you prefer helping here in the bushfires or sending you to the hospital? We need help at both places so it’s all your choice.',
+
         options: [
             {
                 text: 'Hospital',
@@ -119,6 +159,7 @@ const ScriptArrays = [
     {
         id: 5,
         text: 'You are going to China for the first time. You are interested in their culture but also curious about what this strange pneumonia virus is doing to people. You get to Wuhan and find the hospital where the first case was confirmed. Doctors say that they do not need volunteers but you somehow manage to make them agree on letting you observe the patients and their symptoms as you want to write your dissertation on your virus. You take notes on the most common symptoms – tiredness, dry cough and fever. However, in some cases, the virus spreads to patients’ lungs and cause difficulty in breathing, chest pain and even loss of speech or movement. On the 8th of January South Korea announce their first case coming from China. On the next day, China states their first death of the unknown virus – a 61-year-old man who had significant medical conditions and died because of the serious condition of his pneumonia. You have helped many people and learned a lot about the virus and its potential treatment. While being Wuhan, you have travelled a bit and fell in love with their culture, people and cuisine.',
+
         options: [
             {
                 text: 'February Journey',
@@ -131,6 +172,7 @@ const ScriptArrays = [
     {
         id: 6,
         text: 'You are heading to the hospital. You see many people crying and feeling awful. Most of them have lost their homes. You spend the next weeks taking care of children and women that have burns and bruises.',
+
         options: [
             {
                 text: 'February journey',
@@ -143,6 +185,7 @@ const ScriptArrays = [
     {
         id: 7,
         text: 'The firefighters are giving you orders on how to take care of yourself and not put you and the team in danger. You cannot believe how fast the fires are spreading. The next days you spend are on working day and night to ensure stopping the fire.',
+
         options: [
             {
                 text: 'February journey',
@@ -155,6 +198,7 @@ const ScriptArrays = [
     {
         id: 8,
         text: 'It’s the last week of January and you have learned a lot and grown a lot. You have made many friends and saved many lives. However, you do not feel both mentally and physically well and decide to go on vacation. You quickly search through some inspiring possibilities. While searching on the laptop, your phone buzzes. You look at it and see that one of your closest friends has sent you a message. Vanya: "Can you please help me with the documentation for the pre-settled status? I completely forgot that I need to send my documents! In exchange, I am offering you a 7-days-holiday on the Cruise Ship “Diamond Princess” or a 14-days-expedition to Antarctica. My parents had offered me these two options as a gift for my twenty-first birthday and since Bryan is not available, my next choice is you. What do you think? You choose, it does not matter for me.” Vanya is one of those friends that has never left you whatever you have been going through. However, you are a bit annoyed that she has always left things to the last minute. But her offer of vacation is coming to the right minute as you need a rest but you also do not have the money to go anywhere as you have volunteered all month and the money you have will get you only back to Edinburgh.',
+
         options: [
             {
                 text: 'Cruise Ship',
@@ -173,6 +217,7 @@ const ScriptArrays = [
     {
         id: 9,
         text: 'You and Vanya agreed on meeting on the 28th of January in Hong Kong where the ship will have a stop for new passengers. The flight was again exhausting. Vanya convince you to visit some interesting monuments like the Po Lin Monastery and the Garden of Stars. You are amazed by their culture and beautiful nature. However, the time of getting on board is coming and you head to the cruise ship. Many people are getting on the board. You are amazed at how luxurious and maleficent is the shop looking on the outside. There is a guide that takes you and the whole new group getting on the ship to the main halls. You see the restaurant, the entertainment rooms, the ballroom and the outdoor space. The guide tells you more information about the ship and you cannot believe how you got there. This is Japan’s top cruise ship which amazes you and Vanya. Both of you spent the next couple of days meeting new people, relaxing and having fun. Unfortunately, on the 3rd of February, your last day before leaving the ship, the captain and the crew display an emergency message on the TV screens in each room. “Good morning, my fellow passenger. I and the crew are going to tell you something that should not concern you but you need to take it seriously and follow our orders. On the 1st of February we a passenger from “Diamond Princess” had disembarked the ship on our stop in Hong Kong. Unfortunately, this person has been tested positive for the new COVID-19 virus that started spreading out of China. We are going to quarantine all passengers and crew on board for the safety of the nation. Wait in your rooms until a board member comes and tell you in details what to do. Thank you for your time and do not panic. Everything is under control.” Immediately after the message finishes, Vanya gets a panic attack. You explain your experience and how this virus affects mostly old people. She is feeling better and give you an idea of helping as a nurse on the ship. You know that the least you could do so you tell Vanya to be brave and head out to find the medicine crew. The next couple of days went by testing people and the number of infected got bigger and bigger. The approximate number of passengers was around 3 700 and by the 19th of February, a total number of 712 people have confirmed cases of COVID-19. Passengers with negative tests disembarked and by the end of the month, all passengers and crew members left the ship. Your journey finished on Subaru Island where you had a 14 days’ quarantine as all members of the crew.',
+
         options: [
             {
                 text: 'March Journey',
@@ -185,6 +230,7 @@ const ScriptArrays = [
     {
         id: 10,
         text: 'Excellent choice! Vanya sends you a link with detailed information on the expedition. You see that the expedition starts in Buenos Aires and then you fly to Ushuaia also known as “the end of the world”. You are super excited and immediately buy a ticket. You agree to meet with Vanya in Buenos Aires and have a day to explore this beautiful capital city. On the 2nd of February, you are on the ship with Vanya crossing the Drake Passage and waiting to see wandering albatross or rare species of dolphins. Both of you prepare for the journey as none of you has experience in an expedition. Anyway, the DSLR camera is taken and you are ready to create memories that will never be forgotten. The next day is filled with various activities like hiking at penguin colonies, photographing wildlife and learning interesting facts for the continent from the experts that have devoted their lives to this place. The most interesting thing is that this day is marked as the hottest day in the last five years – 18.3C. You learn a lot about how dangerous is the glaciers melting connected to sea level rise and open your mind to the upcoming issues that society will face because of this.At the end of the expedition, you feel spiritually enriched. You have balanced your mental and physical health and you are ready to help people again. Antarctica is something that you will never forget and always recall when there are hard moments of your life. The memories of the journey will always remember you how beautiful is life and that there is always something you should fight for.',
+
         options: [
             {
                 text: 'March Journey',
@@ -197,6 +243,7 @@ const ScriptArrays = [
     {
         id: 11,
         text: ' Now you should decide where to go next. It is only the end of February and you have already learned and seen so much. But what is the next step? There are two options. One is finding a job in the USA because you have always wanted to live there for some months and the other is going to Italy where the situation with the virus is really bad and they need nurses emergently.',
+
         options: [
             {
                 text: 'Italy',
@@ -215,6 +262,7 @@ const ScriptArrays = [
     {
         id: 12,
         text: ' Great! It is really good that you want to help people! You are going to work in the hospital of Bergamo, which is the hardest-hit hospital in Italy. You are going un the hearth of the Covid-19 crisis. Watch the video to see the current situation and prepare mentally for what is waiting for you there. You see how bad is the situation there. Immediately after stepping into the hospital, the head nurse called Alice notices you and asks what she can help you with. You tell her your story and that you want to work there as a nurse and help as many people as you can. She is extremely happy and grateful. Alice makes a brief overview of the building, your room and tells you that you should sign a contract for at least 2 months working there. Do you agree or not? If you do not agree, you will be directed to the flight to USA which was your plan B.',
+
         options: [
             {
                 text: 'Agree',
@@ -246,6 +294,7 @@ const ScriptArrays = [
     {
         id: 14,
         text: 'Good, so you are now searching for a job in the USA. You find a job as a nurse at a hospital in Nashville, Tennessee. You sent your CV and candidate for the visa. After a week your position and visa are approved. You buy tickets and quickly pack your clothes. You reach Nashville on the 1st of March. Then, you find your accommodation and get ready for the first shift that will start in the early morning. On the next day, you head to the hospital but before entering you see something in the sky. At the same time, you hear people screaming and running from something. They are screaming “Hide into the building! Hurry up! A tornado is coming!”. Yes, a tornado. What you will do?',
+
         options: [
             {
                 text: 'Panic and hide',
