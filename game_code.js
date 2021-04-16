@@ -3,6 +3,10 @@ const optionsButton = document.getElementById('options')
 const video1 = document.getElementById('iframe1')
 const video2 = document.getElementById('iframe2')
 const video3 = document.getElementById('iframe3')
+const cardImage = document.getElementById('cardImage')
+const cardTitle = document.getElementById('cardTitle')
+const cardText = document.getElementById('cardText')
+const cardUrl = document.getElementById('cardUrl')
 // keep track of what the user will do
 let state = {}
 let map;
@@ -55,7 +59,6 @@ function showScript(index) {
     const scriptArray = ScriptArrays.find(scriptArray => scriptArray.id === index)
     script.innerText = scriptArray.text
 
-    location.innerText = scriptArray.text
     //remove all options
     while (optionsButton.firstChild) {
         optionsButton.removeChild(optionsButton.firstChild)
@@ -75,6 +78,12 @@ function showScript(index) {
     video1.src = scriptArray.videos1
     video2.src = scriptArray.videos2
     video3.src = scriptArray.videos3
+    cardImage.src = scriptArray.cImage
+    cardTitle.innerText = scriptArray.title
+    cardText.innerText = scriptArray.paragraph
+    cardUrl.href = scriptArray.url
+
+
 }
 
 function showOption(option) {
@@ -97,6 +106,11 @@ const ScriptArrays = [
         videos1: 'https://www.youtube.com/embed/rokGy0huYEA',
         videos2: 'https://www.youtube.com/embed/vGQQbulRUjY',
         videos3: 'https://www.youtube.com/embed/LHj--WDrVO0',
+        cImage: 'id1.jpg',
+        title: '2020 Events',
+        paragraph: 'Yep, these things all happened in the year from hell',
+        url: 'https://nypost.com/list/major-2020-events/',
+
         options: [
             {
                 text: 'Start',
@@ -112,6 +126,10 @@ const ScriptArrays = [
         videos1: 'https://www.youtube.com/embed/mKZkCQiCFHY',
         videos2: 'https://www.youtube.com/embed/zhtg9XgVwuM',
         videos3: 'https://www.youtube.com/embed/MyqhDKNig88',
+        cImage: 'id2.jpg',
+        title: 'Here’s where to travel in 2020',
+        paragraph: 'A new year—a new decade—is upon us, and with that comes new goals.',
+        url: 'https://www.vogue.com/article/where-to-travel-in-2020',
 
         options: [
             {
@@ -131,6 +149,11 @@ const ScriptArrays = [
         videos1: 'https://www.youtube.com/embed/QhGd440LeUk',
         videos2: 'https://www.youtube.com/embed/-l28KQ8dJDM',
         videos3: 'https://www.youtube.com/embed/xKPWngYf2Wk',
+        cImage: 'id3.jpg',
+        title: 'Australian bushfires',
+        paragraph: 'Yes, Australia has always had bushfires: but 2019 is like nothing we have seen before',
+        url: 'https://www.theguardian.com/australia-news/2019/dec/25/factcheck-why-australias-monster-2019-bushfires-are-unprecedented ',
+
         options: [
             {
                 text: 'Volunteer at Australian Bushfires',
@@ -153,6 +176,11 @@ const ScriptArrays = [
         videos1: 'https://www.youtube.com/embed/na9eBzLMhTg',
         videos2: 'https://www.youtube.com/embed/RDWJ_wNQpVI',
         videos3: 'https://www.youtube.com/embed/UpNFjLsg38Q',
+        cImage: 'id4.jpg',
+        title: 'Australia fires worsen as every state hits 40C',
+        paragraph: 'The remains of a car that was destroyed by bushfires in Balmoral, New South Wales',
+        url: ' https://www.bbc.com/news/world-australia-50938504',
+
         options: [
             {
                 text: 'Hospital',
@@ -174,6 +202,11 @@ const ScriptArrays = [
         videos1: 'https://www.youtube.com/embed/IY0P38yrQ_Y',
         videos2: 'https://www.youtube.com/embed/CMtM5mQ9eWo',
         videos3: 'https://www.youtube.com/embed/XU9FVqwO4TM',
+        cImage: 'id5.jpg',
+        title: 'China coronavirus',
+        paragraph: 'Lockdown measures rise across Hubei province',
+        url: 'https://www.bbc.com/news/world-asia-china-51217455',
+
         options: [
             {
                 text: 'February Journey',
@@ -189,6 +222,11 @@ const ScriptArrays = [
         videos1: 'https://www.youtube.com/embed/na9eBzLMhTg',
         videos2: 'https://www.youtube.com/embed/RDWJ_wNQpVI',
         videos3: 'https://www.youtube.com/embed/UpNFjLsg38Q',
+        cImage: 'id5.jpg',
+        title: 'China coronavirus',
+        paragraph: 'Lockdown measures rise across Hubei province',
+        url: 'https://www.bbc.com/news/world-asia-china-51217455',
+
         options: [
             {
                 text: 'February journey',
@@ -204,6 +242,11 @@ const ScriptArrays = [
         videos1: 'https://www.youtube.com/embed/na9eBzLMhTg',
         videos2: 'https://www.youtube.com/embed/RDWJ_wNQpVI',
         videos3: 'https://www.youtube.com/embed/UpNFjLsg38Q',
+        cImage: 'id7.jpg',
+        title: 'Australian deadly wildfires',
+        paragraph: 'Fires are showing no signs of stopping. Here is what you need to know',
+        url: 'https://edition.cnn.com/2020/01/01/australia/australia-fires-explainer-intl-hnk-scli/index.html',
+
         options: [
             {
                 text: 'February journey',
@@ -219,6 +262,11 @@ const ScriptArrays = [
         videos1: 'https://www.youtube.com/embed/HmHSuGGFIWA',
         videos2: 'https://www.youtube.com/embed/JjAR2Vw0N_M',
         videos3: 'https://www.youtube.com/embed/_3tR5uHMlL0',
+        cImage: 'id8.jfif',
+        title: ' Travel to Antarctica',
+        paragraph: 'Exploring one of the world’s ultimate wildlife habitats',
+        url: 'https://www.worldwildlife.org/magazine/issues/fall-2015/articles/travel-to-antarctica',
+
         options: [
             {
                 text: 'Cruise Ship',
@@ -240,6 +288,11 @@ const ScriptArrays = [
         videos1: 'https://www.youtube.com/embed/72__Mdioty8',
         videos2: 'https://www.youtube.com/embed/CDjM834YWrs',
         videos3: 'https://www.youtube.com/embed/SHXw66RVkwM',
+        cImage: 'id9.jpg',
+        title: 'What the cruise-ship outbreaks reveal about COVID-19',
+        paragraph: ' Passengers are quarantined on the cruise ship Diamond Princess',
+        url: 'https://www.nature.com/articles/d41586-020-00885-w',
+
         options: [
             {
                 text: 'March Journey',
@@ -255,6 +308,11 @@ const ScriptArrays = [
         videos1: 'https://www.youtube.com/embed/F2sepCUnENg',
         videos2: 'https://www.youtube.com/embed/KLwqFDml8QQ',
         videos3: 'https://www.youtube.com/embed/mms2tTXLWZk',
+        cImage: 'id10.jpg',
+        title: 'Antarctica logs highest temperature on record of 18.3C',
+        paragraph: ' The Antarctic Peninsula is among the fastest-warming regions on earth',
+        url: ' https://www.bbc.com/news/world-51420681',
+
         options: [
             {
                 text: 'March Journey',
@@ -266,10 +324,15 @@ const ScriptArrays = [
     },
     {
         id: 11,
-        text: ' Now you should decide where to go next. It is only the end of February and you have already learned and seen so much. But what is the next step? There are two options.  The first one is finding a job in the USA because you have always wanted to live there for some months and the other is going to Italy where the situation with the virus is really bad and they need nurses emergently.',
+        text: 'Now you should decide where to go next. It is only the end of February and you have already learned and seen so much. But what is the next step? There are two options.  The first one is finding a job in the USA because you have always wanted to live there for some months and the other is going to Italy where the situation with the virus is really bad and they need nurses emergently.',
         videos1: 'https://www.youtube.com/embed/98H5AN_vfOY',
         videos2: 'https://www.youtube.com/embed/DQzYnxN3tE4',
         videos3: 'https://www.youtube.com/embed/H_JjhDvePV8" ',
+        cImage: 'id11.jpg',
+        title: ' Kenya suffers worst locust infestation in 70 years as millions of insects swarm farmland',
+        paragraph: ' A farmer looks back as she walks through swarms of desert locusts feeding on her crops in Katitika village',
+        url: ' https://www.theguardian.com/world/2020/jan/26/kenya-suffers-worst-locust-infestation-in-70-years-as-millions-of-insects-swarm-farmland',
+
         options: [
             {
                 text: 'Italy',
@@ -291,6 +354,11 @@ const ScriptArrays = [
         videos1: 'https://www.youtube.com/embed/_J60fQr0GWo',
         videos2: 'https://www.youtube.com/embed/eXJhvAtDVwI',
         videos3: 'https://www.youtube.com/embed/H_JjhDvePV8" ',
+        cImage: 'id12.jpg',
+        title: ' Bergamo, Italy',
+        paragraph: ' Hardest-hit city in Italy wants you to see how COVID - 19 is affecting its hospitals ',
+        url: ' https://news.sky.com/story/coronavirus-they-call-it-the-apocalypse-inside-italys-hardest-hit-hospital-11960597',
+
         options: [
             {
                 text: 'Agree',
@@ -312,6 +380,11 @@ const ScriptArrays = [
         videos1: 'https://www.youtube.com/embed/_J60fQr0GWo',
         videos2: 'https://www.youtube.com/embed/eXJhvAtDVwI',
         videos3: 'https://www.youtube.com/embed/H_JjhDvePV8',
+        cImage: 'id12.jpg',
+        title: ' Bergamo, Italy',
+        paragraph: ' Hardest-hit city in Italy wants you to see how COVID - 19 is affecting its hospitals ',
+        url: ' https://news.sky.com/story/coronavirus-they-call-it-the-apocalypse-inside-italys-hardest-hit-hospital-11960597',
+
         options: [
             {
                 text: 'Italy in April',
@@ -327,6 +400,11 @@ const ScriptArrays = [
         videos1: 'https://www.youtube.com/embed/kyexru3QYY4',
         videos2: 'https://www.youtube.com/embed/301gtq59jGs',
         videos3: 'https://www.youtube.com/embed/kwJSU8sglt8',
+        cImage: 'id14.jfif',
+        title: 'March tornadoes tore through the heart of Middle Tennessee',
+        paragraph: 'In just three hours, tornadoes bolted across 175 miles of Middle Tennessee,',
+        url: ' https://fox17.com/news/local/remembering-the-deadly-march-tornadoes-that-tore-through-the-heart-of-middle-tennessee-tornado-outbreak-one-year-anniversary-later-march-3rd-tornadoes',
+
         options: [
             {
                 text: 'Panic and hide',
@@ -348,6 +426,10 @@ const ScriptArrays = [
         videos1: 'https://www.youtube.com/embed/kyexru3QYY4',
         videos2: 'https://www.youtube.com/embed/301gtq59jGs',
         videos3: 'https://www.youtube.com/embed/kwJSU8sglt8',
+        cImage: 'id14.jfif',
+        title: 'March tornadoes tore through the heart of Middle Tennessee',
+        paragraph: 'In just three hours, tornadoes bolted across 175 miles of Middle Tennessee,',
+        url: ' https://fox17.com/news/local/remembering-the-deadly-march-tornadoes-that-tore-through-the-heart-of-middle-tennessee-tornado-outbreak-one-year-anniversary-later-march-3rd-tornadoes',
         options: [
             {
                 text: 'USA in April',
@@ -363,6 +445,10 @@ const ScriptArrays = [
         videos1: 'https://www.youtube.com/embed/dDKon-GeIu4',
         videos2: 'https://www.youtube.com/embed/TGWNCl0Wdy4',
         videos3: 'https://www.youtube.com/embed/GT8Q-qDqIQk',
+        cImage: 'id16.jpg',
+        title: ' Unemployment rate soars to 14.7%',
+        paragraph: 'Record 20.5 million American jobs lost in April.',
+        url: ' https://edition.cnn.com/2020/05/08/economy/april-jobs-report-2020-coronavirus/index.html',
         options: [
             {
                 text: 'Normal reaction, pack your things and go home',
@@ -384,6 +470,11 @@ const ScriptArrays = [
         videos1: 'https://www.youtube.com/embed/Ve8S0rGd9-c',
         videos2: 'https://www.youtube.com/embed/TGWNCl0Wdy4',
         videos3: 'https://www.youtube.com/embed/GT8Q-qDqIQk',
+        cImage: 'id17.jpg',
+        title: 'Killing of George Floyd',
+        paragraph: ' On May 25, 2020, George Floyd, a 46-year-old black man, was killed in Minneapolis, Minnesota, United States, while being arrested on suspicion of using a counterfeit bill.',
+        url: ' https://en.wikipedia.org/wiki/Killing_of_George_Floyd',
+
         options: [
             {
                 text: 'June Journey',
@@ -400,6 +491,12 @@ const ScriptArrays = [
         videos1: 'https://www.youtube.com/embed/mORJmK1Ljgk',
         videos2: 'https://www.youtube.com/embed/0kXCPo7c63I',
         videos3: 'https://www.youtube.com/embed/FlG6tbYaA88',
+        cImage: 'id20.jpg',
+        title: ' Why visit Russia?',
+        paragraph: ' The marvelous architecture, vast landscape, Slavic spirit and a proud nation are just a drop in the ocean of things Russia is famous for',
+        url: 'https://getbybus.com/en/blog/why-visit-russia/',
+
+
         options: [
             {
                 text: 'Return to the UK',
@@ -421,6 +518,11 @@ const ScriptArrays = [
         videos1: 'https://www.youtube.com/embed/nTd5Trp1pbg',
         videos2: 'https://www.youtube.com/embed/nxj4y9c9KiA',
         videos3: 'https://www.youtube.com/embed/32uSO-1zBL4?list=PLPDkqknt-rAjKJn2gjWSUcYcsNHep4wDK',
+        cImage: 'id19.jpg',
+        title: ' Together at Home concert raises $127m for coronavirus relief',
+        paragraph: ' Funds from event organised by Lady Gaga will be split between World Health Organisation and charities',
+        url: ' https://www.theguardian.com/music/2020/apr/20/one-world-together-at-home-concert-lady-gaga-raises-127m-coronavirus-relief',
+
         options: [
             {
                 text: 'Continue working',
@@ -436,6 +538,10 @@ const ScriptArrays = [
         videos1: 'https://www.youtube.com/embed/XjegHIf7HHo',
         videos2: 'https://www.youtube.com/embed/HVwjs_D_kRI',
         videos3: 'https://www.youtube.com/embed/zWUVS51N2Eg',
+        cImage: 'id18.jpg',
+        title: ' COVID-19 crisis causes 17 percent drop in global carbon emissions',
+        paragraph: ' The study published in the journal Nature Climate Change shows that daily emissions decreased by 17%',
+        url: ' https://www.sciencedaily.com/releases/2020/05/200519114233.html',
         options: [
             {
                 text: 'June journey',
@@ -451,6 +557,11 @@ const ScriptArrays = [
         videos1: 'https://www.youtube.com/embed/4Vl4I0weXPU',
         videos2: 'https://www.youtube.com/embed/dTypsyd3rvs',
         videos3: 'https://www.youtube.com/embed/VSUjz_gs4V4',
+        cImage: 'id21.jpg',
+        title: ' Black Lives Matter in the UK',
+        paragraph: 'We are still not being heard',
+        url: ' https://www.bbc.com/news/newsbeat-53812576',
+
         options: [
             {
                 text: 'Stay at home',
@@ -472,6 +583,10 @@ const ScriptArrays = [
         videos1: 'https://www.youtube.com/embed/4Vl4I0weXPU',
         videos2: 'https://www.youtube.com/embed/dTypsyd3rvs',
         videos3: 'https://www.youtube.com/embed/VSUjz_gs4V4',
+        cImage: 'id21.jpg',
+        title: ' Black Lives Matter in the UK',
+        paragraph: 'We are still not being heard',
+        url: ' https://www.bbc.com/news/newsbeat-53812576',
         options: [
             {
                 text: 'July news',
@@ -487,6 +602,10 @@ const ScriptArrays = [
         videos1: 'https://www.youtube.com/embed/4Vl4I0weXPU',
         videos2: 'https://www.youtube.com/embed/dTypsyd3rvs',
         videos3: 'https://www.youtube.com/embed/VSUjz_gs4V4',
+        cImage: 'id21.jpg',
+        title: ' Black Lives Matter in the UK',
+        paragraph: 'We are still not being heard',
+        url: ' https://www.bbc.com/news/newsbeat-53812576',
         options: [
             {
                 text: 'July news',
@@ -502,6 +621,11 @@ const ScriptArrays = [
         videos1: 'https://www.youtube.com/embed/68IWce-Crns',
         videos2: 'https://www.youtube.com/embed/0QROzq6D5jQ',
         videos3: 'https://www.youtube.com/embed/FXCE4GvLl1E',
+        cImage: 'id25.jpg',
+        title: ' Oxford vaccine triggers immune response',
+        paragraph: 'A coronavirus vaccine developed by the University of Oxford appears safe and triggers an immune response.',
+        url: ' https://www.bbc.com/news/uk-53469839',
+
         options: [
             {
                 text: 'Yes',
@@ -523,6 +647,10 @@ const ScriptArrays = [
         videos1: 'https://www.youtube.com/embed/coIXMyWzpAU',
         videos2: 'https://www.youtube.com/embed/XhSFK2o-QWM',
         videos3: 'https://www.youtube.com/embed/0-ogO8tpbtg',
+        cImage: 'id26.jpg',
+        title: ' Fear of second wave in Beijing after-market outbreak',
+        paragraph: ' An area of the Chinese capital Beijing has been put under strict lockdown measures after the  first coronavirus cases in more than 50 days.',
+        url: 'https://www.bbc.com/news/world-asia-china-53034924',
 
         options: [
             {
@@ -545,6 +673,11 @@ const ScriptArrays = [
         videos1: 'https://www.youtube.com/embed/pnN2BNrSrXY',
         videos2: 'https://www.youtube.com/embed/SxshtZxaOaU',
         videos3: 'https://www.youtube.com/embed/qfuDZEQjro8',
+        cImage: 'id22.jpg',
+        title: 'Putin declares emergency over 20,000 ton diesel spill',
+        paragraph: ' The Siberian city of Norilsk, after 20,000 tons of fuel spilled into a nearby river from a power station ',
+        url: ' https://edition.cnn.com/2020/06/03/europe/russia-putin-oil-spill-norilsk-intl/index.html',
+
         options: [
             {
                 text: 'What will happen in July?',
@@ -560,6 +693,11 @@ const ScriptArrays = [
         videos1: 'https://www.youtube.com/embed/pnN2BNrSrXY',
         videos2: 'https://www.youtube.com/embed/cUgtHm7YEhs',
         videos3: 'https://www.youtube.com/embed/0Wjv4r8sP9s',
+        cImage: 'id29.jpg',
+        title: ' Putin strongly backed in controversial Russian reform vote',
+        paragraph: 'Nearly 78% of Russian voters backed constitutional reforms that could keep President Vladimir Putin in power until 2036, election officials say.',
+        url: 'https://www.bbc.com/news/world-europe-53255964',
+
         options: [
             {
                 text: 'Need of change?',
@@ -575,6 +713,11 @@ const ScriptArrays = [
         videos1: 'https://www.youtube.com/embed/yNH4eE3RYUM',
         videos2: 'https://www.youtube.com/embed/l4CA-4k21eA',
         videos3: 'https://www.youtube.com/embed/k51L0MkRO8E',
+        cImage: 'id27.jpg',
+        title: 'Beirut explosion',
+        paragraph: 'The blast destroyed the immediate dockside area, creating a crater approximately 140m (460ft) wide, which flooded with seawater',
+        url: 'https://www.bbc.com/news/world-middle-east-53668493',
+
         options: [
             {
                 text: 'October journey',
@@ -590,6 +733,11 @@ const ScriptArrays = [
         videos1: 'https://www.youtube.com/embed/yNH4eE3RYUM',
         videos2: 'https://www.youtube.com/embed/l4CA-4k21eA',
         videos3: 'https://www.youtube.com/embed/k51L0MkRO8E',
+        cImage: 'id28.jpg',
+        title: 'SMS Required to leave house after Greek lockdown',
+        paragraph: 'Text messages and typed or hand-written notes will once more become part of the everyday life in Greece.',
+        url: 'https://greekreporter.com/2020/11/05/sms-required-to-leave-house-after-greek-lockdown-how-it-works/',
+
         options: [
             {
                 text: 'Greece lockdown in September',
@@ -605,6 +753,11 @@ const ScriptArrays = [
         videos1: 'https://www.youtube.com/embed/egj0k4e8ZDA',
         videos2: 'https://www.youtube.com/embed/8v-OHi3iGQI',
         videos3: 'https://www.youtube.com/embed/JvugagwgWfI',
+        cImage: 'id30.jpg',
+        title: ' Moria migrants',
+        paragraph: 'Fire destroys Greek camp leaving 13,000 without shelter',
+        url: ' https://www.bbc.com/news/world-europe-54082201',
+
         options: [
             {
                 text: 'New journey is coming',
@@ -620,6 +773,11 @@ const ScriptArrays = [
         videos1: 'https://www.youtube.com/embed/3M0TmN2TsK4',
         videos2: 'https://www.youtube.com/embed/3m9I4juKUmw',
         videos3: 'https://www.youtube.com/embed/WdWlR66oK74',
+        cImage: 'id31.jpg',
+        title: 'Severe floods in Vietnam',
+        paragraph: ' More than 100 dead as Vietnam reels from worst floods in decades',
+        url: 'https://edition.cnn.com/2020/10/21/asia/vietnam-floods-weather-intl-hnk/index.html',
+
         options: [
             {
                 text: 'Staying',
@@ -637,10 +795,15 @@ const ScriptArrays = [
     },
     {
         id: 32,
-        text: 'Almost the end of the year (November) and you realize that you love your job and have grown up for such a short time, travelled so many places and met so many people with different cultures. You get some notifications on the phone. Biden defeats Trump for White House, says “time to heal, Slovakia has tested 2/3 of its population and found out that there is only 1% positive ',
+        text: 'Almost the end of the year (November) and you realize that you love your job and have grown up for such a short time, travelled so many places and met so many people with different cultures. You get some notifications on the phone. Biden defeats Trump for White House and Slovakia has tested 2/3 of its population and found out that there is only 1% positive ',
         videos1: 'https://www.youtube.com/embed/vJYL4Osyipc',
         videos2: 'https://www.youtube.com/embed/G0vY0Fn5ngQ',
         videos3: 'https://www.youtube.com/embed/y9urBdYhnYo',
+        cImage: 'id32.jpeg',
+        title: 'Biden defeats Trump for White House',
+        paragraph: 'Democrat Joe Biden defeated President Donald Trump to become the 46th president of the United States',
+        url: 'https://apnews.com/article/joe-biden-wins-white-house-ap-fd58df73aa677acb74fce2a69adb71f9',
+
         options: [
             {
                 text: 'Staying',
@@ -656,6 +819,11 @@ const ScriptArrays = [
         videos1: 'https://www.youtube.com/embed/rokGy0huYEA',
         videos2: 'https://www.youtube.com/embed/vGQQbulRUjY',
         videos3: 'https://www.youtube.com/embed/LHj--WDrVO0',
+        cImage: 'id33.jpg',
+        title: ' The UK started vaccinating',
+        paragraph: ' More than 130,000 people have been vaccinated in the first week of the UK vaccination programme.',
+        url: ' https://www.bbc.com/news/health-55332242',
+
         options: [
             {
                 text: 'Go home',
@@ -678,6 +846,10 @@ const ScriptArrays = [
         videos1: 'https://www.youtube.com/embed/rokGy0huYEA',
         videos2: 'https://www.youtube.com/embed/vGQQbulRUjY',
         videos3: 'https://www.youtube.com/embed/LHj--WDrVO0',
+        cImage: 'id1.jpg',
+        title: '2020 Events',
+        paragraph: 'Yep, these things all happened in the year from hell',
+        url: 'https://nypost.com/list/major-2020-events/',
     }
 ]
 
