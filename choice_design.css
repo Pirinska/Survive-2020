@@ -1,0 +1,44 @@
+body {
+
+    font-family: 'Roboto';
+    font-size: 1vmax;
+    background: linear-gradient(to right, #2b5876, #4e4376) !important;
+
+
+
+}
+
+.angelica,
+.tom {
+
+    max-height: 70vh;
+    max-width: 70vw;
+}
+
+.angelica {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+}
+
+.tom {
+    position: absolute;
+    top: 20%;
+    right: 10%;
+}
+
+p {
+    color: white;
+    max-width: 40vw;
+    position: absolute;
+    top: 20%;
+    left: 30%;
+
+}
+
+.logo {
+    position: absolute;
+    top: 5%;
+    left: 38%;
+    width: 25%;
+}
