@@ -3,7 +3,7 @@
 *::after {
 
     box-sizing: border-box;
-    font-size: 0.8vw;
+    font-size: 0.7vw;
 
 }
 
@@ -150,8 +150,8 @@ body {
     display: grid;
     grid-template-columns: auto auto auto auto auto;
     grid-template-rows: auto;
-    grid-column-gap: 10%;
-    grid-row-gap: 0%;
+    grid-column-gap: 5%;
+    grid-row-gap: 5%;
     justify-items: center;
     align-items: center;
     justify-content: center;
@@ -165,26 +165,29 @@ body {
 .month {
     font-family: 'Bebas Neue' !important;
     font-size: 0.9vmax;
-    margin-left: 5%;
-    margin-right: 5%;
     display: flex;
     justify-content: center;
     align-items: center;
     justify-items: center;
     flex-direction: row;
-    gap: 10px;
+    gap: 1vmax;
 }
 
 
-.imgName,
+
 .imgHealth,
 .imgMoney {
-    max-width: 38% !important;
-    max-height: 38% !important;
+    width: 38% !important;
+    height: 38% !important;
+    max-width: 28% !important;
+    max-height: 28% !important;
 }
 
+.imgName,
 .imgMonth,
 .imgLocation {
+    width: 20% !important;
+    height: 20% !important;
     max-height: 30% !important;
     max-width: 30% !important;
 }
@@ -234,3 +237,17 @@ body {
     margin-top: 3px;
     margin-bottom: 3px;
 }
+
+#assistant {
+    position: absolute;
+    top: 55%;
+    left: 0.1% !important;
+    height: 45% !important;
+    max-height: 45% !important;
+    max-width: 12% !important;
+    width: 12% !important;
+
+
+}
+
+#assistantText {}

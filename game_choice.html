@@ -6,19 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="choice_design.css">
     <title>Survive2020</title>
-    <script defer src="game_code.js"></script>
+    <script src="choice_game.js" defer ></script>
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
 <link rel="manifest" href="game_choice.html">
 </head>
 
-    <img class="logo" src="images/logo.png" alt="logo" >
 <body>
+    <img class="logo" src="images/logo.png" alt="logo" >
 <p> Before you start you need to put your nickname and choose an assistant. But what is an assistant? The assistant will support you with advice and facts based on your current journey. We offer you to choose from two highly educated professionals. Both of them will help you and make you feel as you are on a world adventure with a friend.</p>
+<form>
+<div class="remember_name">
+    <label for="putName"> Type your name here:</label>
+    <input id="putName" type="text" required> <br> <br>
+    <label for="assistant">Choose your assistant: </label>
+    <select name="assistant" id="stored">
+      <option value="" disabled selected>Choose...</option>
+      <option value="angelica">Angelica</option>
+      <option value="tom">Tom</option>
+    </select> <br>
+<input id="submitName" type="submit" value="Save data">
+</div>
+    <div class="forget_name">
+      <label for="forgetName"> Forget your data?</label>
+      <input id="forgetName" type="reset" value="Forget">
+    </div>
+</form>
+<button class="play_button" onclick="window.location.href='game.html' " type="button"> START </button>
     <div class="assistants">
+
     <img class="angelica" src="images/angelica.png" alt="angelica_assistant" >
     <img class="tom" src="images/tom.png" alt="tom_assistant" >
-</div>
+    </div>
 </body>
 </html>

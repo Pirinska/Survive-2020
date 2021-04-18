@@ -7,6 +7,26 @@ const cardImage = document.getElementById('cardImage')
 const cardTitle = document.getElementById('cardTitle')
 const cardText = document.getElementById('cardText')
 const cardUrl = document.getElementById('cardUrl')
+const health = document.getElementById('currentHealth')
+const money = document.getElementById('currentMoney')
+const place = document.getElementById('currentLocation')
+const month = document.getElementById('currentMonth')
+document.body.onload = dataDisplayCheck;
+
+function dataDisplayCheck() {
+    // check whether the 'name' data item is stored in web Storage
+    if (localStorage.getItem('name') && localStorage.getItem('assistant')) {
+        document.getElementById('personalName').innerHTML = localStorage.getItem('name')
+        if (localStorage.getItem('assistant') == "angelica") {
+            document.getElementById('assistant').src = "images/angelica_talk.png"
+        } else {
+            document.getElementById('assistant').src = "images/tom_talk.png"
+        }
+    } else {
+        document.getElementById('personalName').innerHTML = "Unknown"
+    }
+}
+
 // keep track of what the user will do
 let state = {}
 let map;
@@ -83,6 +103,11 @@ function showScript(index) {
     cardTitle.innerText = scriptArray.title
     cardText.innerText = scriptArray.paragraph
     cardUrl.href = scriptArray.url
+    health.innerText = scriptArray.cHealth
+    money.innerText = scriptArray.cMoney
+    place.innerText = scriptArray.cLocation
+    month.innerText = scriptArray.cMonth
+
 
 
 }
@@ -112,6 +137,10 @@ const ScriptArrays = [
         title: '2020 Events',
         paragraph: 'Yep, these things all happened in the year from hell',
         url: 'https://nypost.com/list/major-2020-events/',
+        cHealth: '100%',
+        cMoney: '4500 € ',
+        cLocation: 'Scotland',
+        cMonth: 'December',
 
         options: [
             {
@@ -133,6 +162,10 @@ const ScriptArrays = [
         paragraph: 'A new year—a new decade—is upon us, and with that comes new goals.',
         url: 'https://www.vogue.com/article/where-to-travel-in-2020',
 
+        cHealth: '100%',
+        cMoney: '4500 € ',
+        cLocation: 'Scotland',
+        cMonth: 'December',
         options: [
             {
                 text: 'Next',
@@ -156,6 +189,10 @@ const ScriptArrays = [
         paragraph: 'Yes, Australia has always had bushfires: but 2019 is like nothing we have seen before',
         url: 'https://www.theguardian.com/australia-news/2019/dec/25/factcheck-why-australias-monster-2019-bushfires-are-unprecedented ',
 
+        cHealth: '100%',
+        cMoney: '4500 € ',
+        cLocation: 'Scotland',
+        cMonth: 'December',
         options: [
             {
                 text: 'Volunteer at Australian Bushfires',
@@ -183,6 +220,10 @@ const ScriptArrays = [
         paragraph: 'The remains of a car that was destroyed by bushfires in Balmoral, New South Wales',
         url: ' https://www.bbc.com/news/world-australia-50938504',
 
+        cHealth: '70%',
+        cMoney: '3000 € ',
+        cLocation: 'Australia',
+        cMonth: 'January',
         options: [
             {
                 text: 'Hospital',
@@ -209,6 +250,10 @@ const ScriptArrays = [
         paragraph: 'Lockdown measures rise across Hubei province',
         url: 'https://www.bbc.com/news/world-asia-china-51217455',
 
+        cHealth: '70%',
+        cMoney: '2500 € ',
+        cLocation: 'China',
+        cMonth: 'January',
         options: [
             {
                 text: 'February Journey',
@@ -229,6 +274,10 @@ const ScriptArrays = [
         paragraph: 'Lockdown measures rise across Hubei province',
         url: 'https://www.bbc.com/news/world-asia-china-51217455',
 
+        cHealth: '70%',
+        cMoney: '2000 € ',
+        cLocation: 'Australia',
+        cMonth: 'January',
         options: [
             {
                 text: 'February journey',
@@ -249,6 +298,10 @@ const ScriptArrays = [
         paragraph: 'Fires are showing no signs of stopping. Here is what you need to know',
         url: 'https://edition.cnn.com/2020/01/01/australia/australia-fires-explainer-intl-hnk-scli/index.html',
 
+        cHealth: '70%',
+        cMoney: '2000 € ',
+        cLocation: 'Australia',
+        cMonth: 'January',
         options: [
             {
                 text: 'February journey',
@@ -269,6 +322,10 @@ const ScriptArrays = [
         paragraph: 'Exploring one of the world’s ultimate wildlife habitats',
         url: 'https://www.worldwildlife.org/magazine/issues/fall-2015/articles/travel-to-antarctica',
 
+        cHealth: '100%',
+        cMoney: '4500 € ',
+        cLocation: 'Choose',
+        cMonth: 'January',
         options: [
             {
                 text: 'Cruise Ship',
@@ -295,6 +352,10 @@ const ScriptArrays = [
         paragraph: ' Passengers are quarantined on the cruise ship Diamond Princess',
         url: 'https://www.nature.com/articles/d41586-020-00885-w',
 
+        cHealth: '65%',
+        cMoney: '1500 € ',
+        cLocation: 'China',
+        cMonth: 'February',
         options: [
             {
                 text: 'March Journey',
@@ -315,6 +376,10 @@ const ScriptArrays = [
         paragraph: ' The Antarctic Peninsula is among the fastest-warming regions on earth',
         url: ' https://www.bbc.com/news/world-51420681',
 
+        cHealth: '65%',
+        cMoney: '1500 € ',
+        cLocation: 'Antarctica',
+        cMonth: 'February',
         options: [
             {
                 text: 'March Journey',
@@ -335,6 +400,10 @@ const ScriptArrays = [
         paragraph: ' A farmer looks back as she walks through swarms of desert locusts feeding on her crops in Katitika village',
         url: ' https://www.theguardian.com/world/2020/jan/26/kenya-suffers-worst-locust-infestation-in-70-years-as-millions-of-insects-swarm-farmland',
 
+        cHealth: '80%',
+        cMoney: '2500 € ',
+        cLocation: 'Choose',
+        cMonth: 'February',
         options: [
             {
                 text: 'Italy',
@@ -361,6 +430,10 @@ const ScriptArrays = [
         paragraph: ' Hardest-hit city in Italy wants you to see how COVID - 19 is affecting its hospitals ',
         url: ' https://news.sky.com/story/coronavirus-they-call-it-the-apocalypse-inside-italys-hardest-hit-hospital-11960597',
 
+        cHealth: '60%',
+        cMoney: '1500 € ',
+        cLocation: 'Italy',
+        cMonth: 'March',
         options: [
             {
                 text: 'Agree',
@@ -387,6 +460,10 @@ const ScriptArrays = [
         paragraph: ' Hardest-hit city in Italy wants you to see how COVID - 19 is affecting its hospitals ',
         url: ' https://news.sky.com/story/coronavirus-they-call-it-the-apocalypse-inside-italys-hardest-hit-hospital-11960597',
 
+        cHealth: '65%',
+        cMoney: '2000 € ',
+        cLocation: 'Italy',
+        cMonth: 'March',
         options: [
             {
                 text: 'Italy in April',
@@ -407,6 +484,10 @@ const ScriptArrays = [
         paragraph: 'In just three hours, tornadoes bolted across 175 miles of Middle Tennessee,',
         url: ' https://fox17.com/news/local/remembering-the-deadly-march-tornadoes-that-tore-through-the-heart-of-middle-tennessee-tornado-outbreak-one-year-anniversary-later-march-3rd-tornadoes',
 
+        cHealth: '70%',
+        cMoney: '1500 € ',
+        cLocation: 'USA',
+        cMonth: 'March',
         options: [
             {
                 text: 'Panic and hide',
@@ -432,6 +513,10 @@ const ScriptArrays = [
         title: 'March tornadoes tore through the heart of Middle Tennessee',
         paragraph: 'In just three hours, tornadoes bolted across 175 miles of Middle Tennessee,',
         url: ' https://fox17.com/news/local/remembering-the-deadly-march-tornadoes-that-tore-through-the-heart-of-middle-tennessee-tornado-outbreak-one-year-anniversary-later-march-3rd-tornadoes',
+        cHealth: '73%',
+        cMoney: '1500 € ',
+        cLocation: 'USA',
+        cMonth: 'March',
         options: [
             {
                 text: 'USA in April',
@@ -451,6 +536,10 @@ const ScriptArrays = [
         title: ' Unemployment rate soars to 14.7%',
         paragraph: 'Record 20.5 million American jobs lost in April.',
         url: ' https://edition.cnn.com/2020/05/08/economy/april-jobs-report-2020-coronavirus/index.html',
+        cHealth: '80%',
+        cMoney: '500 € ',
+        cLocation: 'USA',
+        cMonth: 'April',
         options: [
             {
                 text: 'Normal reaction, pack your things and go home',
@@ -477,6 +566,10 @@ const ScriptArrays = [
         paragraph: ' On May 25, 2020, George Floyd, a 46-year-old black man, was killed in Minneapolis, Minnesota, United States, while being arrested on suspicion of using a counterfeit bill.',
         url: ' https://en.wikipedia.org/wiki/Killing_of_George_Floyd',
 
+        cHealth: '60%',
+        cMoney: '1000 € ',
+        cLocation: 'USA',
+        cMonth: 'May',
         options: [
             {
                 text: 'June Journey',
@@ -499,6 +592,10 @@ const ScriptArrays = [
         url: 'https://getbybus.com/en/blog/why-visit-russia/',
 
 
+        cHealth: '78%',
+        cMoney: '1500 € ',
+        cLocation: 'Choose',
+        cMonth: 'June',
         options: [
             {
                 text: 'Return to the UK',
@@ -525,6 +622,10 @@ const ScriptArrays = [
         paragraph: ' Funds from event organised by Lady Gaga will be split between World Health Organisation and charities',
         url: ' https://www.theguardian.com/music/2020/apr/20/one-world-together-at-home-concert-lady-gaga-raises-127m-coronavirus-relief',
 
+        cHealth: '52%',
+        cMoney: '4000 € ',
+        cLocation: 'Italy',
+        cMonth: 'April',
         options: [
             {
                 text: 'Continue working',
@@ -544,6 +645,10 @@ const ScriptArrays = [
         title: ' COVID-19 crisis causes 17 percent drop in global carbon emissions',
         paragraph: ' The study published in the journal Nature Climate Change shows that daily emissions decreased by 17%',
         url: ' https://www.sciencedaily.com/releases/2020/05/200519114233.html',
+        cHealth: '80%',
+        cMoney: '5500 € ',
+        cLocation: 'Italy',
+        cMonth: 'May',
         options: [
             {
                 text: 'June journey',
@@ -564,6 +669,10 @@ const ScriptArrays = [
         paragraph: 'We are still not being heard',
         url: ' https://www.bbc.com/news/newsbeat-53812576',
 
+        cHealth: '90%',
+        cMoney: '2500 € ',
+        cLocation: 'Scotland',
+        cMonth: 'June',
         options: [
             {
                 text: 'Stay at home',
@@ -589,6 +698,10 @@ const ScriptArrays = [
         title: ' Black Lives Matter in the UK',
         paragraph: 'We are still not being heard',
         url: ' https://www.bbc.com/news/newsbeat-53812576',
+        cHealth: '90%',
+        cMoney: '2500 € ',
+        cLocation: 'Scotland',
+        cMonth: 'June',
         options: [
             {
                 text: 'July news',
@@ -608,6 +721,10 @@ const ScriptArrays = [
         title: ' Black Lives Matter in the UK',
         paragraph: 'We are still not being heard',
         url: ' https://www.bbc.com/news/newsbeat-53812576',
+        cHealth: '90%',
+        cMoney: '2500 € ',
+        cLocation: 'Scotland',
+        cMonth: 'June',
         options: [
             {
                 text: 'July news',
@@ -628,6 +745,10 @@ const ScriptArrays = [
         paragraph: 'A coronavirus vaccine developed by the University of Oxford appears safe and triggers an immune response.',
         url: ' https://www.bbc.com/news/uk-53469839',
 
+        cHealth: '60%',
+        cMoney: '3000 € ',
+        cLocation: 'Scotland',
+        cMonth: 'July',
         options: [
             {
                 text: 'Yes',
@@ -654,6 +775,10 @@ const ScriptArrays = [
         paragraph: ' An area of the Chinese capital Beijing has been put under strict lockdown measures after the  first coronavirus cases in more than 50 days.',
         url: 'https://www.bbc.com/news/world-asia-china-53034924',
 
+        cHealth: '90%',
+        cMoney: '2240 € ',
+        cLocation: 'Choose',
+        cMonth: 'July',
         options: [
             {
                 text: 'Lebanon',
@@ -680,6 +805,10 @@ const ScriptArrays = [
         paragraph: ' The Siberian city of Norilsk, after 20,000 tons of fuel spilled into a nearby river from a power station ',
         url: ' https://edition.cnn.com/2020/06/03/europe/russia-putin-oil-spill-norilsk-intl/index.html',
 
+        cHealth: '70%',
+        cMoney: '2010 € ',
+        cLocation: 'Russia',
+        cMonth: 'June',
         options: [
             {
                 text: 'What will happen in July?',
@@ -700,6 +829,10 @@ const ScriptArrays = [
         paragraph: 'Nearly 78% of Russian voters backed constitutional reforms that could keep President Vladimir Putin in power until 2036, election officials say.',
         url: 'https://www.bbc.com/news/world-europe-53255964',
 
+        cHealth: '73%',
+        cMoney: '1500 € ',
+        cLocation: 'Russia',
+        cMonth: 'July',
         options: [
             {
                 text: 'Need of change?',
@@ -720,6 +853,10 @@ const ScriptArrays = [
         paragraph: 'The blast destroyed the immediate dockside area, creating a crater approximately 140m (460ft) wide, which flooded with seawater',
         url: 'https://www.bbc.com/news/world-middle-east-53668493',
 
+        cHealth: '60%',
+        cMoney: '1900 € ',
+        cLocation: 'Lebanon',
+        cMonth: 'August',
         options: [
             {
                 text: 'October journey',
@@ -740,6 +877,10 @@ const ScriptArrays = [
         paragraph: 'Text messages and typed or hand-written notes will once more become part of the everyday life in Greece.',
         url: 'https://greekreporter.com/2020/11/05/sms-required-to-leave-house-after-greek-lockdown-how-it-works/',
 
+        cHealth: '80%',
+        cMoney: '1500 € ',
+        cLocation: 'Greece',
+        cMonth: 'August',
         options: [
             {
                 text: 'Greece lockdown in September',
@@ -760,6 +901,10 @@ const ScriptArrays = [
         paragraph: 'Fire destroys Greek camp leaving 13,000 without shelter',
         url: ' https://www.bbc.com/news/world-europe-54082201',
 
+        cHealth: '90%',
+        cMoney: '1500 € ',
+        cLocation: 'Greece',
+        cMonth: 'September',
         options: [
             {
                 text: 'New journey is coming',
@@ -780,6 +925,10 @@ const ScriptArrays = [
         paragraph: ' More than 100 dead as Vietnam reels from worst floods in decades',
         url: 'https://edition.cnn.com/2020/10/21/asia/vietnam-floods-weather-intl-hnk/index.html',
 
+        cHealth: '100%',
+        cMoney: '900 € ',
+        cLocation: 'Choose',
+        cMonth: 'October',
         options: [
             {
                 text: 'Staying',
@@ -806,6 +955,10 @@ const ScriptArrays = [
         paragraph: 'Democrat Joe Biden defeated President Donald Trump to become the 46th president of the United States',
         url: 'https://apnews.com/article/joe-biden-wins-white-house-ap-fd58df73aa677acb74fce2a69adb71f9',
 
+        cHealth: '80%',
+        cMoney: '2000 € ',
+        cLocation: 'Choose',
+        cMonth: 'November',
         options: [
             {
                 text: 'Staying',
@@ -817,7 +970,7 @@ const ScriptArrays = [
     },
     {
         id: 33,
-        text: 'After all months of working and volunteering you are exhausted. Do you plan to go home for Christmas or continue volunteering and travelling around the world? ',
+        text: 'After all months of working and volunteering you are exhausted. You plan to go home for Christmas. ',
         videos1: 'https://www.youtube.com/embed/rokGy0huYEA',
         videos2: 'https://www.youtube.com/embed/vGQQbulRUjY',
         videos3: 'https://www.youtube.com/embed/LHj--WDrVO0',
@@ -826,15 +979,13 @@ const ScriptArrays = [
         paragraph: ' More than 130,000 people have been vaccinated in the first week of the UK vaccination programme.',
         url: ' https://www.bbc.com/news/health-55332242',
 
+        cHealth: '100%',
+        cMoney: '5000 € ',
+        cLocation: 'Scotland',
+        cMonth: 'December',
         options: [
             {
                 text: 'Go home',
-                requiredState: (currentState) => currentState.december,
-                setState: { december: false, final: true },
-                nextText: 34
-            },
-            {
-                text: 'Continue travelling',
                 requiredState: (currentState) => currentState.december,
                 setState: { december: false, final: true },
                 nextText: 34
@@ -852,8 +1003,9 @@ const ScriptArrays = [
         title: '2020 Events',
         paragraph: 'Yep, these things all happened in the year from hell',
         url: 'https://nypost.com/list/major-2020-events/',
+
     }
 ]
 
 
-start()
+start();
