@@ -8,6 +8,7 @@ body {
 
 }
 
+/* Making images responsive */
 .angelica,
 .tom {
 
@@ -44,7 +45,7 @@ p {
 }
 
 
-
+/* Styling buttons, making them responsive and functional */
 .play_button:hover,
 #submitName:hover,
 #forgetName:hover {
@@ -75,6 +76,7 @@ p {
 
 }
 
+/* Styling the form for data storage */
 #submitName,
 #forgetName {
 
@@ -87,14 +89,14 @@ p {
     background-color: white;
     transition: all 0.2s;
     margin-top: 5%;
-    width: 7vw !important;
-    height: 6vh !important;
-    max-width: 7vw !important;
-    max-height: 6vh !important;
+    width: 7vw;
+    height: 6vh;
+    max-width: 7vw;
+    max-height: 6vh;
 }
 
 form {
-    color: white !important;
+    color: white;
     position: absolute;
     top: 45%;
     left: 30%;

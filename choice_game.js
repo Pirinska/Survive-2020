@@ -1,6 +1,8 @@
-document.body.onload = dataDisplayCheck;
 
-// constants for data storage
+// The client-side storage with localStorage was implemented by following the Mozilla developers documentation Link: https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Client-side_storage
+document.body.onload = dataCheck;
+
+// constants for player data 
 const rememberDiv = document.querySelector('.remember_name');
 const forgetDiv = document.querySelector('.forget_name');
 const form = document.querySelector('form');
@@ -9,39 +11,41 @@ const submitBtn = document.querySelector('#submitName');
 const forgetBtn = document.querySelector('#forgetName');
 const assistant = document.querySelector('#stored');
 
-//stop the form from submitting
+//prevent submission
 form.addEventListener('submit', function (e) {
     e.preventDefault();
 });
-// run function when the 'Say hello' button is clicked
+
+
+// when "Save" button is clicked, do the checkData function and store the values of chosen assistant and name
 submitBtn.addEventListener('click', function () {
-    // store the entered name in web storage
-    localStorage.setItem('name', nameInput.value);
+
     localStorage.setItem('assistant', assistant.value);
-    // run nameDisplayCheck() to sort out displaying the
-    // personalized greetings and updating the form display
-    dataDisplayCheck();
+    localStorage.setItem('name', nameInput.value);
+    dataCheck();
+
 });
 
-// run function when the 'Forget' button is clicked
+// when "Forget" button is clicked, do the checkData function and remove the values of chosen assistant and name
 forgetBtn.addEventListener('click', function () {
-    // Remove the stored name from web storage
+
     localStorage.removeItem('name');
     localStorage.removeItem('assistant')
-    // run nameDisplayCheck() to sort out displaying the
-    // generic greeting again and updating the form display
-    dataDisplayCheck();
+    dataCheck();
+
 });
 
-// define the nameDisplayCheck() function
-function dataDisplayCheck() {
-    // check whether the 'name' data item is stored in web Storage
+// this  function checks if there is values on the name input and chosen option for the assistant
+// if yes, hide save data and the inputs
+// if not, hide the forget  data question with button
+function dataCheck() {
+
     if (localStorage.getItem('name') && localStorage.getItem('assistant')) {
-        // hide the 'remember' part of the form and show the 'forget' part
+
         forgetDiv.style.display = 'block';
         rememberDiv.style.display = 'none';
     } else {
-        // hide the 'forget' part of the form and show the 'remember' part
+
         forgetDiv.style.display = 'none';
         rememberDiv.style.display = 'block';
     }

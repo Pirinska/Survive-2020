@@ -1,5 +1,7 @@
+// function that will check if there are the needed values in the dataStorage to display the assistant and the name in the game layout
+document.body.onload = dataCheck;
 
-document.body.onload = dataDisplayCheck;
+// creating constants that are then used for chanking the content based on the chosen options 
 const script = document.getElementById('script')
 const optionsButton = document.getElementById('options')
 const video1 = document.getElementById('iframe1')
@@ -15,20 +17,24 @@ const place = document.getElementById('currentLocation')
 const month = document.getElementById('currentMonth')
 const chat = document.getElementById('chat')
 
-function myFunction() {
-    var element = document.body;
-    element.classList.toggle("white-mode");
+//finction for toggling the background for white and dark mode
+function mode() {
+    var dark_mode = document.body;
+    dark_mode.classList.toggle("white-mode");
 }
 
-function dataDisplayCheck() {
-    // check whether the 'name' data item is stored in web Storage
+//function that checks if the needed data is in the web storage
+function dataCheck() {
+
     if (localStorage.getItem('name') && localStorage.getItem('assistant')) {
         document.getElementById('personalName').innerHTML = localStorage.getItem('name')
+        // if it is stored get chosen option for assitant and display the appropriate graphic
         if (localStorage.getItem('assistant') == "angelica") {
             document.getElementById('assistant').src = "images/angelica_talk.png"
         } else {
             document.getElementById('assistant').src = "images/tom_talk.png"
         }
+        //else put on name Unknown and display no picture
     } else {
         document.getElementById('personalName').innerHTML = "Unknown"
     }
@@ -36,10 +42,11 @@ function dataDisplayCheck() {
 
 // keep track of what the user will do
 let state = {}
+
+// the initMap function was created by following the documentation of Google
 let map;
-
-
 function initMap() {
+    //the focused location is where the game player starts
     const location = { lat: 55.953251, lng: -3.188267 };
     map = new google.maps.Map(document.getElementById("map"), {
         center: location,
@@ -51,22 +58,22 @@ function initMap() {
         title: "Zoom out and find out where is your next journey location. You can walk through the streets. So exciting!",
 
     });
+    // here is a function for adding multiple markers on the map
+    newMarker({ lat: 30.581980, lng: 114.268066 });
+    newMarker({ lat: -33.635890, lng: 150.285780 });
+    newMarker({ lat: 22.396427, lng: 114.109497 });
+    newMarker({ lat: -34.603683, lng: -58.381557 });
+    newMarker({ lat: -54.801910, lng: -68.302948 });
+    newMarker({ lat: -68.302948, lng: 9.669960 });
+    newMarker({ lat: 35.517490, lng: -86.580444 });
+    newMarker({ lat: 55.755825, lng: 37.617298 });
+    newMarker({ lat: 69.355789, lng: 88.189293 });
+    newMarker({ lat: 37.983810, lng: 23.727539 });
+    newMarker({ lat: 39.134100, lng: 26.517750 });
+    newMarker({ lat: 33.893791, lng: 35.501778 });
+    newMarker({ lat: 12.565679, lng: 104.990967 });
 
-    addMarker({ lat: 30.581980, lng: 114.268066 });
-    addMarker({ lat: -33.635890, lng: 150.285780 });
-    addMarker({ lat: 22.396427, lng: 114.109497 });
-    addMarker({ lat: -34.603683, lng: -58.381557 });
-    addMarker({ lat: -54.801910, lng: -68.302948 });
-    addMarker({ lat: -68.302948, lng: 9.669960 });
-    addMarker({ lat: 35.517490, lng: -86.580444 });
-    addMarker({ lat: 55.755825, lng: 37.617298 });
-    addMarker({ lat: 69.355789, lng: 88.189293 });
-    addMarker({ lat: 37.983810, lng: 23.727539 });
-    addMarker({ lat: 39.134100, lng: 26.517750 });
-    addMarker({ lat: 33.893791, lng: 35.501778 });
-    addMarker({ lat: 12.565679, lng: 104.990967 });
-
-    function addMarker(location) {
+    function newMarker(location) {
         var marker = new google.maps.Marker({
             position: location,
             map: map,
@@ -75,22 +82,32 @@ function initMap() {
     }
 }
 
+//the following gunvtion are constructed with the example of a youtube tutorial that shows a basic level of changing text because of buttons :https://www.youtube.com/watch?v=R1S_NhKkvGA, YouTube Channel: Web Dev Simplified
+//  this approach was used as it saves creating a single page for  each journey that the player takes
+// the functions and array are then modified 
+
+//start game function
 function start() {
     state = {}
     showScript(1)
     initMap()
 }
 
+
+//function to show the script and the buttons
 function showScript(index) {
 
+    //checks if the index matches the array id
     const scriptArray = ScriptArrays.find(scriptArray => scriptArray.id === index)
 
+    // main script text
     script.innerText = scriptArray.text
 
     //remove all options
     while (optionsButton.firstChild) {
         optionsButton.removeChild(optionsButton.firstChild)
     }
+    // add options based on id array content
     scriptArray.options.forEach(option => {
         if (showOption(option)) {
 
@@ -103,6 +120,7 @@ function showScript(index) {
         }
     })
 
+    //connect array  and constants that are taken to display different content
     video1.src = scriptArray.videos1
     video2.src = scriptArray.videos2
     video3.src = scriptArray.videos3
@@ -119,10 +137,12 @@ function showScript(index) {
 
 }
 
+// function that shows the options based on the required state or null
 function showOption(option) {
     return option.requiredState == null || option.requiredState(state)
 }
 
+//function for the choosed option content
 function chooseOption(option) {
 
     const nextTexdId = option.nextText
@@ -131,6 +151,8 @@ function chooseOption(option) {
 }
 
 
+//The array contains 34 ids with unique game sript, options, player statistics, 3 videos and 1 article
+//  Each of the sources is selected and embeded carefully so as to fullfill the main objective of the game that is to educate in an adventurous way
 
 const ScriptArrays = [
     {
