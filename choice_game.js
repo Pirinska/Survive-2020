@@ -1,4 +1,4 @@
-document.body.onload = nameDisplayCheck;
+document.body.onload = dataDisplayCheck;
 
 // constants for data storage
 const rememberDiv = document.querySelector('.remember_name');
@@ -20,7 +20,7 @@ submitBtn.addEventListener('click', function () {
     localStorage.setItem('assistant', assistant.value);
     // run nameDisplayCheck() to sort out displaying the
     // personalized greetings and updating the form display
-    nameDisplayCheck();
+    dataDisplayCheck();
 });
 
 // run function when the 'Forget' button is clicked

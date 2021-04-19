@@ -1,3 +1,5 @@
+
+document.body.onload = dataDisplayCheck;
 const script = document.getElementById('script')
 const optionsButton = document.getElementById('options')
 const video1 = document.getElementById('iframe1')
@@ -11,7 +13,12 @@ const health = document.getElementById('currentHealth')
 const money = document.getElementById('currentMoney')
 const place = document.getElementById('currentLocation')
 const month = document.getElementById('currentMonth')
-document.body.onload = dataDisplayCheck;
+const chat = document.getElementById('chat')
+
+function myFunction() {
+    var element = document.body;
+    element.classList.toggle("white-mode");
+}
 
 function dataDisplayCheck() {
     // check whether the 'name' data item is stored in web Storage
@@ -107,7 +114,7 @@ function showScript(index) {
     money.innerText = scriptArray.cMoney
     place.innerText = scriptArray.cLocation
     month.innerText = scriptArray.cMonth
-
+    chat.innerText = scriptArray.cChat
 
 
 }
@@ -141,7 +148,7 @@ const ScriptArrays = [
         cMoney: '4500 € ',
         cLocation: 'Scotland',
         cMonth: 'December',
-
+        cChat: 'Thank you for choosing me! Let the journey begin...',
         options: [
             {
                 text: 'Start',
@@ -166,6 +173,7 @@ const ScriptArrays = [
         cMoney: '4500 € ',
         cLocation: 'Scotland',
         cMonth: 'December',
+        cChat: 'I will tell you with interesting facts and advise you throughout your journey...',
         options: [
             {
                 text: 'Next',
@@ -193,6 +201,7 @@ const ScriptArrays = [
         cMoney: '4500 € ',
         cLocation: 'Scotland',
         cMonth: 'December',
+        cChat: 'Explore the map, if you cannot decide where you want to go...',
         options: [
             {
                 text: 'Volunteer at Australian Bushfires',
@@ -224,6 +233,7 @@ const ScriptArrays = [
         cMoney: '3000 € ',
         cLocation: 'Australia',
         cMonth: 'January',
+        cChat: 'Did you know that pproximately 1,400 homes have been destroyed?',
         options: [
             {
                 text: 'Hospital',
@@ -254,6 +264,7 @@ const ScriptArrays = [
         cMoney: '2500 € ',
         cLocation: 'China',
         cMonth: 'January',
+        cChat: 'Do not forget to watch the videos provided. They will represent you the real-world situation that happened...',
         options: [
             {
                 text: 'February Journey',
@@ -278,6 +289,7 @@ const ScriptArrays = [
         cMoney: '2000 € ',
         cLocation: 'Australia',
         cMonth: 'January',
+        cChat: 'Do not forget to watch the videos provided. They will represent you the real-world situation that happened...',
         options: [
             {
                 text: 'February journey',
@@ -295,13 +307,14 @@ const ScriptArrays = [
         videos3: 'https://www.youtube.com/embed/UpNFjLsg38Q',
         cImage: 'images/id7.jpg',
         title: 'Australian deadly wildfires',
-        paragraph: 'Fires are showing no signs of stopping. Here is what you need to know',
+        paragraph: ' Here is what you need to know',
         url: 'https://edition.cnn.com/2020/01/01/australia/australia-fires-explainer-intl-hnk-scli/index.html',
 
         cHealth: '70%',
         cMoney: '2000 € ',
         cLocation: 'Australia',
         cMonth: 'January',
+        cChat: 'Do not forget to watch the videos provided. They will represent you the real-world situation that happened...',
         options: [
             {
                 text: 'February journey',
@@ -326,6 +339,7 @@ const ScriptArrays = [
         cMoney: '4500 € ',
         cLocation: 'Choose',
         cMonth: 'January',
+        cChat: 'Exploring the world is so fullfilling. Right?',
         options: [
             {
                 text: 'Cruise Ship',
@@ -356,6 +370,7 @@ const ScriptArrays = [
         cMoney: '1500 € ',
         cLocation: 'China',
         cMonth: 'February',
+        cChat: ' Diamond princess is the best international ship in Japan',
         options: [
             {
                 text: 'March Journey',
@@ -380,6 +395,7 @@ const ScriptArrays = [
         cMoney: '1500 € ',
         cLocation: 'Antarctica',
         cMonth: 'February',
+        cChat: 'Antarctica is the fifth largest continent and 99% of it is covered by ice...',
         options: [
             {
                 text: 'March Journey',
@@ -404,6 +420,7 @@ const ScriptArrays = [
         cMoney: '2500 € ',
         cLocation: 'Choose',
         cMonth: 'February',
+        cChat: 'Where do you want to go more? It is  your decision...',
         options: [
             {
                 text: 'Italy',
@@ -434,6 +451,7 @@ const ScriptArrays = [
         cMoney: '1500 € ',
         cLocation: 'Italy',
         cMonth: 'March',
+        cChat: 'Two months is not so long. Think of it. They need your help...',
         options: [
             {
                 text: 'Agree',
@@ -464,6 +482,7 @@ const ScriptArrays = [
         cMoney: '2000 € ',
         cLocation: 'Italy',
         cMonth: 'March',
+        cChat: 'Bergamo is known for its rare beauty and medieval atmosphere... ',
         options: [
             {
                 text: 'Italy in April',
@@ -488,6 +507,7 @@ const ScriptArrays = [
         cMoney: '1500 € ',
         cLocation: 'USA',
         cMonth: 'March',
+        cChat: ' Good choice! I know that Tennessee has more than 3,800 documented caves...',
         options: [
             {
                 text: 'Panic and hide',
@@ -517,6 +537,7 @@ const ScriptArrays = [
         cMoney: '1500 € ',
         cLocation: 'USA',
         cMonth: 'March',
+        cChat: ' You should go to the basement or find a room without windows that is on the lowest floor possible.',
         options: [
             {
                 text: 'USA in April',
@@ -540,6 +561,7 @@ const ScriptArrays = [
         cMoney: '500 € ',
         cLocation: 'USA',
         cMonth: 'April',
+        cChat: ' This is the highest unemployment rate since the Great Depression',
         options: [
             {
                 text: 'Normal reaction, pack your things and go home',
@@ -562,14 +584,15 @@ const ScriptArrays = [
         videos2: 'https://www.youtube.com/embed/TGWNCl0Wdy4',
         videos3: 'https://www.youtube.com/embed/GT8Q-qDqIQk',
         cImage: 'images/id17.jpg',
-        title: 'Killing of George Floyd',
-        paragraph: ' On May 25, 2020, George Floyd, a 46-year-old black man, was killed in Minneapolis, Minnesota, United States, while being arrested on suspicion of using a counterfeit bill.',
+        title: 'This death led to worldwide protests with massive support. You will learn more if you continue playing...',
+        paragraph: ' ',
         url: ' https://en.wikipedia.org/wiki/Killing_of_George_Floyd',
 
         cHealth: '60%',
         cMoney: '1000 € ',
         cLocation: 'USA',
         cMonth: 'May',
+        cChat: 'Thank you for choosing me! Let the journey begin!',
         options: [
             {
                 text: 'June Journey',
@@ -596,6 +619,7 @@ const ScriptArrays = [
         cMoney: '1500 € ',
         cLocation: 'Choose',
         cMonth: 'June',
+        cChat: 'Do you want to continue travelling or want to see your family?',
         options: [
             {
                 text: 'Return to the UK',
@@ -626,6 +650,7 @@ const ScriptArrays = [
         cMoney: '4000 € ',
         cLocation: 'Italy',
         cMonth: 'April',
+        cChat: ' Did you know that the concert raised almost $128 million in response to the Covid-19 crisis?',
         options: [
             {
                 text: 'Continue working',
@@ -649,6 +674,7 @@ const ScriptArrays = [
         cMoney: '5500 € ',
         cLocation: 'Italy',
         cMonth: 'May',
+        cChat: 'Covid-19 has led to big improvement to the environment due to lockdowns.',
         options: [
             {
                 text: 'June journey',
@@ -673,6 +699,7 @@ const ScriptArrays = [
         cMoney: '2500 € ',
         cLocation: 'Scotland',
         cMonth: 'June',
+        cChat: 'Black Lives Matter may be the largest movement that has happened in the United States history...',
         options: [
             {
                 text: 'Stay at home',
@@ -702,6 +729,7 @@ const ScriptArrays = [
         cMoney: '2500 € ',
         cLocation: 'Scotland',
         cMonth: 'June',
+        cChat: 'Take your time and be ready for the next journeys...',
         options: [
             {
                 text: 'July news',
@@ -725,6 +753,7 @@ const ScriptArrays = [
         cMoney: '2500 € ',
         cLocation: 'Scotland',
         cMonth: 'June',
+        cChat: ' Some articles say that coronavirus has heightened social divises. What do you think?',
         options: [
             {
                 text: 'July news',
@@ -749,6 +778,7 @@ const ScriptArrays = [
         cMoney: '3000 € ',
         cLocation: 'Scotland',
         cMonth: 'July',
+        cChat: 'This is your choice. Do you think its early for testing the vaccine on people or not?',
         options: [
             {
                 text: 'Yes',
@@ -779,6 +809,7 @@ const ScriptArrays = [
         cMoney: '2240 € ',
         cLocation: 'Choose',
         cMonth: 'July',
+        cChat: 'Both Lebanon and Greece are extremely beautiful and exciting places to visit...',
         options: [
             {
                 text: 'Lebanon',
@@ -809,6 +840,7 @@ const ScriptArrays = [
         cMoney: '2010 € ',
         cLocation: 'Russia',
         cMonth: 'June',
+        cChat: 'Did you know that Russia is the biggest country in the world? ',
         options: [
             {
                 text: 'What will happen in July?',
@@ -833,6 +865,7 @@ const ScriptArrays = [
         cMoney: '1500 € ',
         cLocation: 'Russia',
         cMonth: 'July',
+        cChat: 'Interesting fact that I have heard is that he is super adventurous and has a black belt in judo...',
         options: [
             {
                 text: 'Need of change?',
@@ -857,6 +890,7 @@ const ScriptArrays = [
         cMoney: '1900 € ',
         cLocation: 'Lebanon',
         cMonth: 'August',
+        cChat: ' There were more than 200 people killed',
         options: [
             {
                 text: 'October journey',
@@ -881,6 +915,7 @@ const ScriptArrays = [
         cMoney: '1500 € ',
         cLocation: 'Greece',
         cMonth: 'August',
+        cChat: 'You can go through this, just do not give up...',
         options: [
             {
                 text: 'Greece lockdown in September',
@@ -905,6 +940,7 @@ const ScriptArrays = [
         cMoney: '1500 € ',
         cLocation: 'Greece',
         cMonth: 'September',
+        cChat: 'I admire people like you. Good job, keep doing it...',
         options: [
             {
                 text: 'New journey is coming',
@@ -929,6 +965,7 @@ const ScriptArrays = [
         cMoney: '900 € ',
         cLocation: 'Choose',
         cMonth: 'October',
+        cChat: ' The 2020 floods affected Central Vietnam - Cambodia, Laos...',
         options: [
             {
                 text: 'Staying',
@@ -959,6 +996,7 @@ const ScriptArrays = [
         cMoney: '2000 € ',
         cLocation: 'Choose',
         cMonth: 'November',
+        cChat: ' Do you enjoy your journeys so far?',
         options: [
             {
                 text: 'Staying',
@@ -983,6 +1021,7 @@ const ScriptArrays = [
         cMoney: '5000 € ',
         cLocation: 'Scotland',
         cMonth: 'December',
+        cChat: 'I hope that you liked my service. It was my honour to assist you in the Survive2020 game',
         options: [
             {
                 text: 'Go home',
@@ -1001,11 +1040,10 @@ const ScriptArrays = [
         videos3: 'https://www.youtube.com/embed/LHj--WDrVO0',
         cImage: 'images/id1.jpg',
         title: '2020 Events',
-        paragraph: 'Yep, these things all happened in the year from hell',
+        paragraph: ' I hope that you liked my service. It was my honour to assist you in the Survive2020 game',
         url: 'https://nypost.com/list/major-2020-events/',
 
     }
 ]
-
 
 start();
