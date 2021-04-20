@@ -1064,7 +1064,14 @@ const ScriptArrays = [
         title: '2020 Events',
         paragraph: ' I hope that you liked my service. It was my honour to assist you in the Survive2020 game',
         url: 'https://nypost.com/list/major-2020-events/',
-
+        options: [
+            {
+                text: 'Play again',
+                requiredState: (currentState) => currentState.final,
+                setState: { final: false, start: true },
+                nextText: 1
+            }
+        ]
     }
 ]
 
